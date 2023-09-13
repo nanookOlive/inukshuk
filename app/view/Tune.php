@@ -1,3 +1,3 @@
 <?php foreach($data as $grille):?>
-<p><?= $grille->getTitre()?></p>
+<p><?= $grille->getId()?></p>
 <?php endforeach?>

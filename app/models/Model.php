@@ -26,7 +26,9 @@ class Model {
         $query='SELECT * FROM '.$this->table.';';
         return $data=($this->pdo)->query($query)->fetchAll(PDO::FETCH_CLASS,get_class($this));
     }
-    
 
+    public function find(){}
+    
+    
     
 }

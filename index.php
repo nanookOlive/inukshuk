@@ -13,5 +13,3 @@ Autoloader::register();
 $grilles= new Grille;
 
 $grilles=$grilles->getAll();
-$controller = new Controller;
-$controller->render('Tune',$grilles);
