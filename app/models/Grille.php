@@ -14,13 +14,13 @@ class Grille extends Model {
 
     public function getTitre(){
 
-        return $this->titre();
+        return $this->titre;
     }
 
     public function getAll():array 
     {
 
         $query='SELECT * FROM '.$this->table.';';
-        return $data=($this->pdo)->query($query)->fetchAll(PDO::FETCH_CLASS,'Grille');
+        return $data=($this->pdo)->query($query)->fetchAll(PDO::FETCH_CLASS,get_class($this));
     }
 }

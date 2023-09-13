@@ -1,1 +1,3 @@
-<?php var_dump($data)?>
+<?php foreach($data as $grille):?>
+<p><?= $grille->getTitre()?></p>
+<?php endforeach?>

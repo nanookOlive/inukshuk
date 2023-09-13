@@ -8,7 +8,6 @@ use Core\DataConnexion;
 use PDO;
 
 require_once __DIR__.'/../../core/DataConnexion.php';
-// require_once __DIR__.'/../../Autoloader.php';
 
 class Model {
 

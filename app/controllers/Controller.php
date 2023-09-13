@@ -3,7 +3,6 @@
 
 namespace App\controllers;
 
-
 class Controller{
 
 
