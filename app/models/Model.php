@@ -20,6 +20,12 @@ class Model {
         $this->pdo=DataConnexion::getDbInstance();
     }
 
+    public function getAll():array 
+    {
+
+        $query='SELECT * FROM '.$this->table.';';
+        return $data=($this->pdo)->query($query)->fetchAll(PDO::FETCH_CLASS,get_class($this));
+    }
     
 
     
