@@ -13,4 +13,14 @@ class Controller{
         require_once __DIR__.'/../view/'.$viewType.'.php';
         require_once __DIR__.'/../view/footer.php';
     }
+
+    public function miaou(){
+
+        echo 'miaou';
+    }
+
+    public function ouaf(){
+
+        echo 'ouaf';
+    }
 }
