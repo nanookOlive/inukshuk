@@ -1,0 +1,81 @@
+@font-face{
+    font-family:Inuktitut;
+    src:url('fonts/inuktitut.ttf');
+    
+}
+@font-face{
+    font-family:montserrat;
+    src:url('font/montserrat.ttf');
+}
+
+/*------------------------------------------------*/
+
+
+.top-header{
+
+    display:flex;
+    align-items: center;
+}
+
+
+#logo{
+
+
+    width:150px;
+}
+.text-content{
+
+    display : flex;
+}
+
+.text-logo{
+
+    margin:20px;
+}
+#inuktitut{
+
+    font-family: 'Inuktitut';
+    font-size:4rem;
+    opacity:1;
+    transition: all 500ms ease;
+}
+
+#french{
+
+    font-family: 'montserrat';
+    font-size:3rem;
+    opacity: 0;
+    transition: all 1s ease;
+    
+
+}
+
+.text-content:hover #inuktitut{
+
+    opacity: 0;
+
+}
+.text-content:hover #french{
+
+    opacity:1;
+}
+
+/*------------------------------------------------------------------------------------------------------*/
+
+.nav{
+
+    display: flex;;
+}
+.nav a{
+
+    text-decoration: none;
+    color : black;
+}
+.categorie-nav{
+
+    margin:30px;
+}
+.top-cat-nav{
+
+    font-family: Inuktitut;
+}

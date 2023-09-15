@@ -10,10 +10,15 @@ class Grille extends Model {
     private $titre;
     protected $class;
     protected $idTune;
+    protected $auteur;
+
+    public static function Miaou()
+    {
+        echo 'miaou';
+    }
 
 
-
-    public function getTitre(){
+    public  function getTitre(){
 
         return $this->titre;
     }
@@ -23,5 +28,16 @@ class Grille extends Model {
         return $this->idTune;
     }
 
-    
+    public function getAuteur():string 
+    {
+        return $this->auteur;
+        
+    }
+
+    // public function getAllAuteur():array 
+    // {
+
+    //     $query='SELECT auteur FROM '.$this->table.';';
+    //     return $data=($this->pdo)->query($query)->fetchAll(PDO::FETCH_CLASS,get_class($this));
+    // }
 }

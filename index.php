@@ -1,32 +1,38 @@
 <?php
 
-use App\controllers\Controller;
-use App\models\Model;
-use App\models\Grille;
-use Core\DataConnexion;
-
+use App\models\{Model,Grille};
 require_once 'Autoloader.php';
-require_once 'core/DataConnexion.php';
 require_once 'AltoRouter.php';
-require_once'Dispatcher.php';
+require_once 'Dispatcher.php';
+require_once 'altoRoutes.php';
+
 Autoloader::register();
 
+function readVarDump($arg){
 
+    echo '<pre>';
+    var_dump($arg);
+    echo '</pre>'; 
+}
 //test alto 
 
-$router=new AltoRouter();
-$_SERVER['BASE_URI']='/mvc2';
-$router->setBasePath($_SERVER['BASE_URI']);
-$router->map('GET','/',['method'=>'miaou','controller'=>'Controller'],'home');
-$router->map('GET','/chien',['method'=>'ouaf','controller'=>'Controller'],'chien');
 
-$match=$router->match();
-$dispatcher=new Dispatcher($match,'SAUCISSE');
+
+//les routes sous la forme d'un tableau
+
+
+
+$router=new AltoRouter($routes,$basePath);
+
+$match  = $router->match();
+
+$dispatcher=new Dispatcher($match,'ErrorController::err404');
 $dispatcher->setControllersNamespace('App\controllers');
+$dispatcher->setControllersArguments($match['name'],$router);
+
+
+
 $dispatcher->dispatch();
 
-?>
 
-<!Doctype html>
 
-<a href=<?=$router->generate('chien')?>>ouaf</a>

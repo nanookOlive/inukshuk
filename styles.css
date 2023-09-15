@@ -1,0 +1,16 @@
+.item-click{
+
+    border: 1px solid black;
+    cursor:pointer;
+}
+
+.motherFlex{
+
+    display:flex;
+    width:100%;
+
+}
+.listeGrille{
+
+    width:40%;
+}
