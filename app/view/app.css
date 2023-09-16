@@ -73,9 +73,22 @@
 }
 .categorie-nav{
 
-    margin:30px;
+    margin:30px;    
+    font-size:1.5rem;
 }
 .top-cat-nav{
 
     font-family: Inuktitut;
+}
+
+/*-------------------------MAMAFLEX */
+
+#liste-grille{
+
+    margin-left: 100px;
+}
+
+.item-click{
+
+    cursor: pointer;
 }
