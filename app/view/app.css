@@ -9,7 +9,13 @@
 }
 
 /*------------------------------------------------*/
+body{
 
+    display : flex;
+    flex-direction: column;
+    align-items: center;
+
+}
 
 .top-header{
 
@@ -82,13 +88,46 @@
 }
 
 /*-------------------------MAMAFLEX */
+.mama-flex{
 
+    display:flex;
+    flex-direction: row;
+    width:80%;
+
+}
 #liste-grille{
 
-    margin-left: 100px;
+    width :25%;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+}
+
+.show-pdf{
+
+    width:75%;
+    height:600px;
+    display: flex;
+    justify-content: center;
 }
 
 .item-click{
 
     cursor: pointer;
+    
+}
+
+.underline-item-click{
+
+    width:100%;
+    border-bottom:solid 1px black;
+    opacity: 0;
+    transition: all 1s ease;
+
+
+}
+
+#liste-grille:hover .underline-item-click{
+
+    opacity: 1;
 }
