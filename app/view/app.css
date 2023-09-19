@@ -3,10 +3,7 @@
     src:url('fonts/inuktitut.ttf');
     
 }
-@font-face{
-    font-family:montserrat;
-    src:url('font/montserrat.ttf');
-}
+
 
 /*------------------------------------------------*/
 body{
@@ -103,7 +100,7 @@ body{
     justify-self: center;
 }
 
-.show-pdf{
+#show-pdf{
 
     width:75%;
     height:600px;

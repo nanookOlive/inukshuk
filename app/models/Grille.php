@@ -11,6 +11,7 @@ class Grille extends Model {
     protected $class;
     protected $idTune;
     protected $auteur;
+    protected $contributeur;
 
     public static function Miaou()
     {
@@ -32,6 +33,10 @@ class Grille extends Model {
     {
         return $this->auteur;
         
+    }
+    public function getChemin():string 
+    {
+        return $this->contributeur;
     }
 
     // public function getAllAuteur():array 
