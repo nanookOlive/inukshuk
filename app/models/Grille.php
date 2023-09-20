@@ -12,12 +12,7 @@ class Grille extends Model {
     protected $idTune;
     protected $auteur;
     protected $contributeur;
-
-    public static function Miaou()
-    {
-        echo 'miaou';
-    }
-
+    
 
     public  function getTitre(){
 
@@ -39,10 +34,10 @@ class Grille extends Model {
         return $this->contributeur;
     }
 
-    // public function getAllAuteur():array 
-    // {
+    public function getAll():array 
+    {
 
-    //     $query='SELECT auteur FROM '.$this->table.';';
-    //     return $data=($this->pdo)->query($query)->fetchAll(PDO::FETCH_CLASS,get_class($this));
-    // }
+        $query='SELECT * FROM '.$this->table.';';
+        return $data=($this->pdo)->query($query)->fetchAll(PDO::FETCH_CLASS,get_class($this));
+    }
 }

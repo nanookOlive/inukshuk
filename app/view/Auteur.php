@@ -1,3 +1,3 @@
-<?php foreach($data as $grille):?>
-<p><?= $grille->getAuteur()?></p>
+<?php foreach($data as $auteur):?>
+<p><?= $auteur->getAuteur()?></p>
 <?php endforeach?>

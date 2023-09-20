@@ -9,16 +9,7 @@ class GrilleController extends CoreController{
 
    
 
-    public function render($viewType, array $data){
-
-      
-        $router=$this->router;
-        
-        
-        require_once __DIR__.'/../view/header.php';
-        require_once __DIR__.'/../view/'.$viewType.'.php';
-        require_once __DIR__.'/../view/footer.php';
-    }
+    
 
     public function getAllTune(){
 
@@ -28,9 +19,5 @@ class GrilleController extends CoreController{
         
     }
 
-    public function getAllAuteur(){
-
-        $tunes = (new Grille())->getAll();
-        $this->render('Auteur',$tunes);
-    }
+    
 }

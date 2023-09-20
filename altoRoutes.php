@@ -7,7 +7,7 @@ $routes=[
     'name'=>'home'],
     ['method'=>'GET',
     'route'=>'/auteurs',
-    'target'=>['method'=>'getAllAuteur','controller'=>'GrilleController'],
+    'target'=>['method'=>'getAllAuteur','controller'=>'AuteurController'],
     'name'=>'auteurs']
 ];
 

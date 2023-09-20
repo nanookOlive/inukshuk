@@ -9,7 +9,7 @@ use PDO;
 
 require_once __DIR__.'/../../core/DataConnexion.php';
 
-class Model {
+abstract class Model {
 
     protected $table='tune';
     protected $pdo;
@@ -20,14 +20,9 @@ class Model {
         $this->pdo=DataConnexion::getDbInstance();
     }
 
-    public function getAll():array 
-    {
+    
 
-        $query='SELECT * FROM '.$this->table.';';
-        return $data=($this->pdo)->query($query)->fetchAll(PDO::FETCH_CLASS,get_class($this));
-    }
-
-    public function find(){}
+    public function getAll(){}
     
     
     
