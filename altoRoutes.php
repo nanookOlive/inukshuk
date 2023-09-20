@@ -3,11 +3,11 @@
 $routes=[
     ['method'=>'GET',
     'route'=>'/',
-    'target'=>['method'=>'getAllTune','controller'=>'Controller'],
+    'target'=>['method'=>'getAllTune','controller'=>'GrilleController'],
     'name'=>'home'],
     ['method'=>'GET',
     'route'=>'/auteurs',
-    'target'=>['method'=>'getAllAuteur','controller'=>'Controller'],
+    'target'=>['method'=>'getAllAuteur','controller'=>'GrilleController'],
     'name'=>'auteurs']
 ];
 
