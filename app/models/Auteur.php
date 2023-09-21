@@ -6,18 +6,29 @@ use PDO;
 class Auteur extends Model{
 
     protected $table='tune';
-    protected $auteur;
+    protected $nomAuteur;
+    protected $id;
 
+    public function getId():int 
+    {
+        return $this->id;
+    }
 
     public function getAuteur():string 
     {
-        return $this->auteur;
+        return $this->nomAuteur;
     }
-    public function getAll():array{
+    
+    public function getAll():array
+    {
 
-        $query='SELECT DISTINCT auteur FROM '.$this->table;
-        return $data=($this->pdo)->query($query)->fetchAll(PDO::FETCH_CLASS,get_class($this));
+        $data=[];
+        $stat=($this->pdo)->query('select  id,nomAuteur from auteur order by nomAuteur');
+        return $stat->fetchAll(PDO::FETCH_CLASS,get_class($this));
 
+            
+        
+        
     }
     
 }

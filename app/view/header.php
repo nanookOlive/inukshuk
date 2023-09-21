@@ -3,17 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=!, initial-scale=1.0">
-    <link rel="stylesheet" href='app/view/app.css'>
+    <link rel="stylesheet" href='/mvc2/app/view/app.css'>
     <title>Inukshuk</title>
 </head>
 <body>
 
     <header>
 
+
+
         <div class="top-header">
-            <div class="logo-container">
-                <img src='app/view/ressources/2.png' id='logo' loading='lazy'>
-            </div>
+           <a href="<?= $router->generate('home')?>"> <div class="logo-container">
+                <img src='/mvc2/app/view/ressources/2.png' id='logo' loading='lazy'>
+            </div></a>
 
             <div class="text-content">
                 <div class="text-logo" id="inuktitut">iNQSQ</div>

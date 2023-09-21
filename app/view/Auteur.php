@@ -1,3 +1,5 @@
+
+
 <?php foreach($data as $auteur):?>
-<p><?= $auteur->getAuteur()?></p>
+    <a href="<?= $router->generate('byAuteur',['id'=>$auteur->getId()])?>"><?= $auteur->getAuteur()?></a>
 <?php endforeach?>

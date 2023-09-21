@@ -9,7 +9,7 @@ class AuteurController extends CoreController{
     public function getAllAuteur()
     {
 
-        $data = (new Auteur())->getAll();
+        $data =(new Auteur())->getAll();
         $this->render('Auteur',$data);
     }
 

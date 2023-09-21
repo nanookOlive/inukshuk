@@ -23,7 +23,7 @@
             var chemin=item.getAttribute('value');
             console.log(chemin[0]);
             // Set the attributes for the iframe
-            iframe.src = "res/tunePdf/"+item.getAttribute('value')+'.pdf'; // Replace with the URL you want to embed
+            iframe.src = "/mvc2/res/tunePdf/"+item.getAttribute('value')+'.pdf'; // Replace with the URL you want to embed
             iframe.width = "500"; // Set the desired width
             iframe.height = "700"; // Set the desired height
 
