@@ -95,9 +95,11 @@ body{
 #liste-grille{
 
     width :25%;
+    height:700px;
     display: flex;
     flex-direction: column;
     justify-self: center;
+    overflow:scroll;
 }
 
 #show-pdf{
@@ -127,4 +129,25 @@ body{
 #liste-grille:hover .underline-item-click{
 
     opacity: 1;
+}
+
+.list-auteur a{
+
+    
+    text-decoration: none;
+    color :black;
+}
+
+.list-auteur{
+
+    display:flex;
+    flex-direction : column;
+    width : 500px;
+    height : 700px;
+    overflow: scroll;
+}
+
+.auteur-click{
+
+    margin: 20px;
 }
