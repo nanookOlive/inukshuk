@@ -9,4 +9,7 @@ class User extends Model{
     protected $mail;
     protected $password;
     protected $granted;
+
+
+    
 }

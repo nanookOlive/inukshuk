@@ -17,7 +17,10 @@ class UserController extends CoreController{
     
         $router=$this->router;
 
-        if($_POST['mail']==='ours'){
+        // autentif
+
+
+        if($_POST['mail']==='ours'){ // si ok vers la page all Tunes
             header("Location:".$router->generate('allTunes'));
 
 
