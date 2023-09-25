@@ -3,4 +3,10 @@
 
 namespace App\models;
 
-class User extends Model{}
+class User extends Model{
+
+    protected $idUser;
+    protected $mail;
+    protected $password;
+    protected $granted;
+}

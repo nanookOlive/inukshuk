@@ -1,10 +1,19 @@
 <?php
 
 $routes=[
+
     ['method'=>'GET',
     'route'=>'/',
-    'target'=>['method'=>'getAllTune','controller'=>'GrilleController'],
+    'target'=>['method'=>'connect','controller'=>'UserController'],
     'name'=>'home'],
+    ['method'=>'POST',
+    'route'=>'/',
+    'target'=>['method'=>'verify','controller'=>'UserController'],
+    'name'=>'user-connect'],
+    ['method'=>'GET',
+    'route'=>'/allTunes',
+    'target'=>['method'=>'getAllTune','controller'=>'GrilleController'],
+    'name'=>'allTunes'],
     ['method'=>'GET',
     'route'=>'/auteurs',
     'target'=>['method'=>'getAllAuteur','controller'=>'AuteurController'],

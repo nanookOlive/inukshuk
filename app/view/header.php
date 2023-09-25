@@ -25,7 +25,7 @@
 
             <span class='categorie-nav'>
                 <p class="top-cat-nav">morceaux</p>
-                <a href="<?= $router->generate('home')?>">les morceaux</a>
+                <a href="<?= $router->generate('allTunes')?>">les morceaux</a>
             </span>
             
             <span class='categorie-nav'>
