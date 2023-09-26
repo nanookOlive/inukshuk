@@ -10,7 +10,7 @@ class UserController extends CoreController{
 
         $router=$this->router;
 
-        require_once __DIR__.'../../view/Formu.php';
+        require_once __DIR__.'../../view/FormuConnect.php';
     }
 
     public function verify(){
@@ -29,5 +29,20 @@ class UserController extends CoreController{
         }
 
        
+    }
+
+    public function inscription(){
+
+        $router= $this->router;
+
+        require_once __DIR__.'../../view/FormuInscription.php';
+    }
+
+
+    public function sendInscription(){
+
+        $router=$this->router;
+
+        header("Location:".$router->generate('home'));
     }
 }
