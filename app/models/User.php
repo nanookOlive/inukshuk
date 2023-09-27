@@ -13,11 +13,14 @@ class User extends Model{
     protected $granted;
 
 
-    public function getPassword(){
+    public function getPassword():string{
 
         return $this->pass;
     }
+    public function getGranted():bool{
 
+        return $this->granted;
+    }
 
     public function getUser(string $email):User|false{
 

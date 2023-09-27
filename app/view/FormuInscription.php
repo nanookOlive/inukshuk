@@ -1,13 +1,16 @@
 <?php
+if(isset($_SESSION['error'])){
+    
+    if(!is_null($_SESSION['error'])){
 
-if(!is_null($_SESSION['error'])){
-
-    foreach($_SESSION['error'] as $key => $val){
-
-        echo $key. ' '. $val.'</br>';
+        foreach($_SESSION['error'] as $key => $val){
+    
+            echo $key. ' '. $val.'</br>';
+        }
     }
+    $_SESSION['error']=[];
 }
-$_SESSION['error']=[];
+
 ?>
 
 <!DOCTYPE html>

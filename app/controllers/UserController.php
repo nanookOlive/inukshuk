@@ -50,9 +50,30 @@ class UserController extends CoreController{
                 }
                 // on assigne l'objet user dans le tableau de session
                 else{
+
+
+                    // on vérifie le mot de pass 
+
+                    if($password === $user->getPassword()){
+
+                        if($user->getGranted()){
+
+                            //on check le status du user ; il doit être granted pour accéder au service
+                            $_SESSION['user']=serialize($user);  
+                            header('Location:'.$router->generate('allTunes'));
+                        }
+
+                        else{
+
+                            echo 'validation de votre demande inscription en cours';
+                        }
+                    }
+
+                    else{
+
+                        echo 'wrong password';
+                    }
                     
-                    $_SESSION['user']=serialize($user);  
-                    header('Location:'.$router->generate('allTunes'));
             
                 }
             }
@@ -67,6 +88,7 @@ class UserController extends CoreController{
 
         require_once __DIR__.'../../view/FormuInscription.php';
     }
+
 
 
     public function sendInscription(){
@@ -128,6 +150,7 @@ class UserController extends CoreController{
 
                     if($user->insertUser($email,$password)){
 
+                        //envoie du mail à l'admin pour changement du status de granted 0 à granted 1
                         header('Location:'.$router->generate('home'));
                     }
 
