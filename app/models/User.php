@@ -33,9 +33,11 @@ class User extends Model{
 
     public function insertUser($mail,$pass){
 
+        $pdo = DataConnexion::getDbInstance();
+
         $query='INSERT INTO user(mail,pass,granted)VALUES(:mail, :pass,:granted)';
         $data=[':mail'=>$mail,':pass'=>$pass,':granted'=>0];
-        $statement = ($this->pdo)->prepare($query);
+        $statement = $pdo->prepare($query);
         if($statement->execute($data)){
 
             return true;

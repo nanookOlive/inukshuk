@@ -2,6 +2,7 @@
 
 namespace App\controllers;
 use App\models\User;
+//require_once '/mvc2/core/Utils.php';
 
 class UserController extends CoreController{
 
@@ -132,6 +133,8 @@ class UserController extends CoreController{
             $message=filter_input(INPUT_POST,'message',FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
             if(filter_input(INPUT_POST,'mail',FILTER_VALIDATE_EMAIL)){
+
+                
                 //exists in base 
 
                 $user = new User;
@@ -151,16 +154,22 @@ class UserController extends CoreController{
                     if($user->insertUser($email,$password)){
 
                         //envoie du mail à l'admin pour changement du status de granted 0 à granted 1
+
+                        //sendRequestInscription();
                         header('Location:'.$router->generate('home'));
                     }
 
                     else{
 
-                        //probleme lors de l'inscription 
+                        echo 'probleme lors inscription' ;
 
                     }
                 }
 
+            }
+            else{
+
+                echo 'invalid mail format';
             }
             }
             
