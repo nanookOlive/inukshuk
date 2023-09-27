@@ -17,18 +17,48 @@ class UserController extends CoreController{
     
         $router=$this->router;
 
-        if($_POST['mail']==='ours'){
-            header("Location:".$router->generate('allTunes'));
+        // on vérifie nettoie les inputs
 
+        if((empty($_POST['mail']) || (empty($_POST['password'])))){
 
+           header('Location:'.$router->generate('home'));
         }
-
         else{
 
-            header("Location:".$router->generate('home'));
-        }
+            $email = filter_input(INPUT_POST,'mail',FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+            $password=filter_input(INPUT_POST,'password',FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
+            $user=new User;
+            $user=$user->getUser($email);
+
+
+                    //on crée un objet user à partir du mail 
+
+            if(!$user){
+
+                echo 'user not in base !';
+                header('Location:'.$router->generate('home'));
+            }
+
+            else{
        
+
+                if(!empty($_SESSION['user'])){ // le user est déjà connecté
+
+                   echo 'user already connected !';
+                  
+                }
+                // on assigne l'objet user dans le tableau de session
+                else{
+                    
+                    $_SESSION['user']=serialize($user);  
+                    header('Location:'.$router->generate('allTunes'));
+            
+                }
+            }
+
+
+        }  
     }
 
     public function inscription(){
@@ -43,6 +73,77 @@ class UserController extends CoreController{
 
         $router=$this->router;
 
-        header("Location:".$router->generate('home'));
+
+       
+        $error=[];
+
+
+        ////is empty 
+
+        foreach($_POST as $key => $val){
+
+            if(empty($val)){
+                $error[$key]='is_empty';
+            }
+        }
+
+        $_SESSION['error']=$error;
+
+
+        if(!empty($error)){
+
+            header('Location:'.$router->generate('inscription'));
+            
+        }
+
+        
+
+
+        
+       else{
+
+
+
+        
+            $email=filter_input(INPUT_POST,'mail',FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+            $password=filter_input(INPUT_POST,'password',FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+            $message=filter_input(INPUT_POST,'message',FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+
+            if(filter_input(INPUT_POST,'mail',FILTER_VALIDATE_EMAIL)){
+                //exists in base 
+
+                $user = new User;
+                            
+
+                if($user->getUser($email)){
+
+                    $error['inBase']='user allready in base';
+
+                    //message vous êtes dejà inscrit
+                    $_SESSION['error']= $error;
+                    header('Location:'.$router->generate('inscription'));
+
+                }
+                else{
+
+                    if($user->insertUser($email,$password)){
+
+                        header('Location:'.$router->generate('home'));
+                    }
+
+                    else{
+
+                        //probleme lors de l'inscription 
+
+                    }
+                }
+
+            }
+            }
+            
+
+
+        //header("Location:".$router->generate('home'));
+
     }
 }

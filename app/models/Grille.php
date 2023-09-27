@@ -2,6 +2,7 @@
 
 namespace App\models;
 use PDO;
+use core\DataConnexion;
 
 class Grille extends Model {
 
@@ -37,8 +38,9 @@ class Grille extends Model {
     public function getAll():array 
     {
 
+        $pdo=DataConnexion::getDbInstance();
         $query='SELECT * FROM '.$this->table.';';
-        return $data=($this->pdo)->query($query)->fetchAll(PDO::FETCH_CLASS,get_class($this));
+        return $pdo->query($query)->fetchAll(PDO::FETCH_CLASS,get_class($this));
     }
 
     public function getTunesByAuteur(string $id):array

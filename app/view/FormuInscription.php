@@ -1,4 +1,13 @@
 <?php
+
+if(!is_null($_SESSION['error'])){
+
+    foreach($_SESSION['error'] as $key => $val){
+
+        echo $key. ' '. $val.'</br>';
+    }
+}
+$_SESSION['error']=[];
 ?>
 
 <!DOCTYPE html>
@@ -16,6 +25,6 @@
         <textarea name='message'></textarea>
         <input type='submit'name='submit'>
     </form>
-    
+    <a href='<?=$router->generate('home')?>'>retour</a>
 </body>
 </html>

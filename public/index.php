@@ -2,7 +2,6 @@
 
 //use App\models\{Model,Grille,Auteur,User};
 session_start();
-
 require_once __DIR__.'/../Autoloader.php';
 require_once __DIR__.'/../AltoRouter.php';
 require_once __DIR__.'/../Dispatcher.php';
