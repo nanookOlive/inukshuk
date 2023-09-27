@@ -151,3 +151,30 @@ body{
 
     margin: 20px;
 }
+
+
+/*-------------------------FORMUCONNECT-----------------------*/
+
+.big-container{
+
+    width:80%;
+    height : 100vh;
+    display:flex;
+}
+
+.left-container{
+
+    width:70%;
+    height:100%;
+}
+
+.left-container img{
+
+    width:100%;
+}
+
+.right-container .formulaire{
+
+    display:flex;
+    flex-direction: column;
+}
