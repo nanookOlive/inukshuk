@@ -2,6 +2,7 @@
 
 namespace App\models;
 use PDO;
+use core\DataConnexion;
 
 class Auteur extends Model{
 
@@ -23,7 +24,8 @@ class Auteur extends Model{
     {
 
         $data=[];
-        $stat=($this->pdo)->query('select  id,nomAuteur from auteur order by nomAuteur');
+        $pdo=DataConnexion::getDbInstance();
+        $stat=$pdo->query('select  id,nomAuteur from auteur order by nomAuteur');
         return $stat->fetchAll(PDO::FETCH_CLASS,get_class($this));
 
             

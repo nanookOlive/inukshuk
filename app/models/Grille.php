@@ -46,8 +46,9 @@ class Grille extends Model {
     public function getTunesByAuteur(string $id):array
     {
 
+        $pdo=DataConnexion::getDbInstance();
         $query ='SELECT idTune,titre,chemin FROM tune JOIN auteur ON tune.auteurId=auteur.id WHERE id= :id';
-        $statement = $this->pdo->prepare($query);
+        $statement = $pdo->prepare($query);
         $statement->execute(array('id'=>$id));
         return $data=$statement->fetchAll(PDO::FETCH_CLASS,get_class($this));
     }
