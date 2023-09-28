@@ -2,7 +2,7 @@
 
 namespace App\controllers;
 use App\models\User;
-//require_once '/mvc2/core/Utils.php';
+require_once __DIR__.'/../../core/Utils.php';
 
 class UserController extends CoreController{
 
@@ -151,11 +151,13 @@ class UserController extends CoreController{
                 }
                 else{
 
-                    if($user->insertUser($email,$password)){
+                    $token = uniqid();
+                    if($user->insertUser($email,$password,$token)){
 
                         //envoie du mail à l'admin pour changement du status de granted 0 à granted 1
-
-                        //sendRequestInscription();
+                        $token=($user->getUser($email))->getToken();
+                        
+                        sendRequestInscription($email,$_POST['message'],$token);
                         header('Location:'.$router->generate('home'));
                     }
 

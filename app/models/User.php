@@ -11,6 +11,7 @@ class User extends Model{
     protected $mail;
     protected $pass;
     protected $granted;
+    private $token;
 
 
     public function getPassword():string{
@@ -22,6 +23,10 @@ class User extends Model{
         return $this->granted;
     }
 
+    public function getToken():string 
+    {
+        return $this->token;
+    }
     public function getUser(string $email):User|false{
 
         $pdo = DataConnexion::getDbInstance();
@@ -31,12 +36,12 @@ class User extends Model{
 
 
 
-    public function insertUser($mail,$pass){
+    public function insertUser($mail,$pass,string $token=null){
 
         $pdo = DataConnexion::getDbInstance();
 
-        $query='INSERT INTO user(mail,pass,granted)VALUES(:mail, :pass,:granted)';
-        $data=[':mail'=>$mail,':pass'=>$pass,':granted'=>0];
+        $query='INSERT INTO user(mail,pass,granted,token)VALUES(:mail, :pass,:granted,:token)';
+        $data=[':mail'=>$mail,':pass'=>$pass,':granted'=>0,':token'=>$token];
         $statement = $pdo->prepare($query);
         if($statement->execute($data)){
 

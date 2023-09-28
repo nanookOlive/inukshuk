@@ -14,30 +14,35 @@ require_once '../src/SMTP.php';
 
 ///envoi de mail
 
-function sendRequestInscription(){
+function sendRequestInscription(string $email, string $message,$token){
 
     $mail = new PHPMailer();
+
+    $lien="<a href='localhost/mvc2/confirmation/".$token."'>confirmer</a>";//put uniqid as token in url => update user table adding token 
+
+    $content ='Gloire aux oursons ! '.$email.' souhaite faire partie de la famille. Voici son message : '.$message.'. Le lien pour validation : '.$lien;
+
     try {
-        //Server settings
-        $mail->SMTPDebug = 2;                      //Enable verbose debug output
-        $mail->isSMTP();                                            //Send using SMTP
-        $mail->Host= 'mail.gandi.net';                     //Set the SMTP server to send through
-        $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+        
+
+        $mail->SMTPDebug = 2;                     
+        $mail->isSMTP();                                           
+        $mail->Host= 'mail.gandi.net';                     
+        $mail->SMTPAuth   = true;                                   
         $mail->Username='inukshuk@nanookpandora.com';
         $mail->Password='inukshuk!';
-                          //SMTP password
-        $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
-    
-        //Recipients
-        $mail->setFrom('inukshuk@nanookpandora.com', 'Mailer');
-        $mail->addAddress('olivier.stierer@gmail.com', 'Olivier');     //Add a recipient
+        $mail->Port       = 587;                                    
+        
+
+        $mail->setFrom('inukshukRequest@inukshuk.com', 'Inukshuk');
+        $mail->addAddress('inukshuk@nanookpandora.com', 'Olivier');     
        
     
       
-        //Content
-        $mail->isHTML(true);                                  //Set email format to HTML
-        $mail->Subject = 'Salut Raton';
-        $mail->Body    = 'Vous êtes une saucisse chere amie !';
+        // mail Content
+        $mail->isHTML(true);                                  
+        $mail->Subject = 'Demande d\'inscription';
+        $mail->Body    = $content;
     
         $mail->send();
 
