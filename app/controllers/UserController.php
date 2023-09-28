@@ -173,7 +173,7 @@ class UserController extends CoreController{
 
                 echo 'invalid mail format';
             }
-            }
+        }
             
 
 
