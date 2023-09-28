@@ -187,6 +187,16 @@ class UserController extends CoreController{
         $router = $this->router;
         session_unset();
         session_destroy();
+
+        if(ini_get('session.use_cookies')){
+            $params = session_get_cookie_params();
+            setCookie(session_name(),'',time()-3600,
+            $params["path"],
+            $params['domain'],
+            $params['secure'],
+            $params['httponly']);
+        }
+
         header('Location:'.$router->generate('home'));
 
        
