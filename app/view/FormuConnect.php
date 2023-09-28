@@ -10,7 +10,6 @@
 </head>
 <body>
 
-<?php var_dump($_SESSION)?>
     <div class='big-container'>
 
         <div class='left-container'>

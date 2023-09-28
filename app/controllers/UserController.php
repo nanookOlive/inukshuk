@@ -180,4 +180,15 @@ class UserController extends CoreController{
         //header("Location:".$router->generate('home'));
 
     }
+
+
+    public function logoutUser(){
+
+        $router = $this->router;
+        session_unset();
+        session_destroy();
+        header('Location:'.$router->generate('home'));
+
+       
+    }
 }

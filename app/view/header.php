@@ -33,6 +33,8 @@
                 <a href="<?=$router->generate('auteurs')?>">les auteurs</a>
             </span>
 
+            <a href="<?= $router->generate('logout')?>">Se déconnecter</a>
+
         </div>
         </div>
 

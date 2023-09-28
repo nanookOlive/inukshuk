@@ -1,5 +1,4 @@
 
-<?= var_dump($_SESSION['user'])?>
 <div class='mama-flex'>
     <div id='liste-grille'>
 
