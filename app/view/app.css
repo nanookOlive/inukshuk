@@ -101,7 +101,11 @@ body{
     justify-self: center;
     overflow:scroll;
 }
+#liste-grille a{
 
+    text-decoration: none;
+    color : black;
+}
 #show-pdf{
 
     width:75%;
@@ -131,21 +135,7 @@ body{
     opacity: 1;
 }
 
-.list-auteur a{
 
-    
-    text-decoration: none;
-    color :black;
-}
-
-.list-auteur{
-
-    display:flex;
-    flex-direction : column;
-    width : 500px;
-    height : 700px;
-    overflow: scroll;
-}
 
 .auteur-click{
 
