@@ -154,27 +154,144 @@ body{
 
 
 /*-------------------------FORMUCONNECT-----------------------*/
+.top-page{
+
+    position: absolute;
+
+    width:1300px;
+    height:100px;
+  
+}
+.top-page a{
+
+    text-decoration: none;
+    color:black;
+}
+
+.titre-fr,.titre-inut{
+
+    position :absolute;
+    font-size: 50px;
+    transition :all .4s ease-in;
+    bottom:0;
+}
+
+.titre-inut{
+
+    font-family: Inuktitut;
+    font-size:70px;
+
+}
+#right{
+
+    right:50px;
+}
+
+.waou-effect .titre-fr{
+
+    opacity: 0;
+}
+
+
+.waou-effect:hover .titre-inut{
+
+    opacity : 0;
+}
+
+.waou-effect:hover .titre-fr{
+
+    opacity : 1;
+}
 
 .big-container{
 
-    width:80%;
-    height : 100vh;
+    width:1020px;
+    height : 750px;
     display:flex;
+    justify-content: right;
+    align-items: center;
+    margin-top:150px;
+    background-image: url('ressources/inukshuk_colore_resized.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-.left-container{
 
-    width:70%;
-    height:100%;
-}
+.right-container{
 
-.left-container img{
-
-    width:100%;
+    width : 35%;
+    height: 80%;
+    margin-right:25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /*glass effect */
+    background:rgba(255,255,255,0.2);
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(5px);
+    box-shadow: 0 4px 30px rgba(0,0,0,0.8);
 }
 
 .right-container .formulaire{
 
     display:flex;
     flex-direction: column;
+    align-items: center;
+}
+
+.right-container .formulaire input{
+
+    width:60%;
+    margin:10px;
+
+}
+
+#button-send
+{
+    margin :100px;
+    width:150px;
+    height:150px;
+    border-radius: 50%;
+    font-size:.7rem;
+    border:none;
+    border-right:20px solid black;
+    background-color: #fff;
+    transition:all 500ms ease;
+    font-family: Inuktitut;
+    color:black;
+
+
+}         
+
+#button-send:hover
+{
+    box-shadow: 0px 0px 100px 5px #fff;
+    color : white;
+    background-color: black;
+    border-left:20px solid white;
+    border-right:none;
+    cursor: pointer;
+    font-family: 'Courier New', Courier, monospace;
+    
+}
+
+input::-moz-placeholder{
+
+    font-family : Inuktitut;
+}
+
+input:focus::-moz-placeholder{
+
+    font-family: 'Courier New', Courier, monospace;
+}
+
+
+/*------------------------------------------footer---------------------------------------------------------------------------------------*/
+
+footer{
+
+    display:flex;
+    justify-content: center;
+    font-size: 0.75rem;
 }

@@ -1,5 +1,5 @@
 <footer>
-    <h1>Et les gloutons sont leurs héraults</h1>
+    <div>une application faîte à la patte par &copy;Zours 2023</div>
 </footer>
 </body>
 
