@@ -13,6 +13,10 @@ class User extends Model{
     protected $granted;
     private $token;
 
+    public function getIdUser(){
+
+        return $this->idUser;
+    }
 
     public function getPassword():string{
 

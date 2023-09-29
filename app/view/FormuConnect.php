@@ -1,6 +1,31 @@
 
 <?php
 
+if(isset($_SESSION['error'])){
+
+    $error=$_SESSION['error'];
+
+    if(isset($error['errorConnection'])){
+
+        $error=$error['errorConnection'];
+        $_SESSION['error']['errorConnection']=null;
+        $_SESSION['error']=null;
+    }
+    else{
+        $error=null;
+
+    }
+    
+}
+else{
+    $error=null;
+
+}
+
+if(isset($_SESSION['user'])){
+
+    $_SESSION['user']=null;
+}
 
 ?>
 <!DOCTYPE html>
@@ -33,7 +58,7 @@
         
 
         <div class='right-container'>
-            <div id='info-error'></div>
+            <div id='info-error'><?=$error?></div>
                 <form method='POST' class='formulaire'>
                     <input type='text' name='mail' placeholder='mail'>
                     <input type='password' name='password' placeholder='password'>

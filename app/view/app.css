@@ -285,7 +285,23 @@ input:focus::-moz-placeholder{
 
     font-family: 'Courier New', Courier, monospace;
 }
+/*---------------------------------------------------FormuInscription--------------------------------------------------------------------*/
 
+
+.formulaire textarea{
+
+    width:60%;
+
+}
+
+textarea::-moz-placeholder{
+
+    font-family: Inuktitut;
+}
+textarea:focus::-moz-placeholder{
+
+    font-family: 'Courier New', Courier, monospace;
+}
 
 /*------------------------------------------footer---------------------------------------------------------------------------------------*/
 

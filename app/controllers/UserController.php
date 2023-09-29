@@ -37,7 +37,7 @@ class UserController extends CoreController{
 
             if(!$user){
 
-                echo 'user not in base !';
+                $_SESSION['error']=['errorConnection'=>'Vous n\'êtes pas encore inscrit.'];
                 header('Location:'.$router->generate('home'));
             }
 
@@ -45,15 +45,16 @@ class UserController extends CoreController{
        
 
                 if(!empty($_SESSION['user'])){ // le user est déjà connecté
-
-                   echo 'user already connected !';
+                    
+                    $this->logoutUser();
+                   
                   
                 }
                 // on assigne l'objet user dans le tableau de session
                 else{
 
 
-                    // on vérifie le mot de pass 
+                    
 
                     if($password === $user->getPassword()){
 
@@ -66,13 +67,17 @@ class UserController extends CoreController{
 
                         else{
 
-                            echo 'validation de votre demande inscription en cours';
+                            $_SESSION['error']=['errorConnection'=>'Votre demande d\'inscription est en cours de validation.'];
+                            header('Location:'.$router->generate('home'));
+
                         }
                     }
 
                     else{
 
-                        echo 'wrong password';
+                        $_SESSION['error']=['errorConnection'=>'Il y a une erreur dans votre password.'];
+                        header('Location:'.$router->generate('home'));
+
                     }
                     
             
@@ -106,6 +111,7 @@ class UserController extends CoreController{
         foreach($_POST as $key => $val){
 
             if(empty($val)){
+                
                 $error[$key]='is_empty';
             }
         }
