@@ -56,3 +56,45 @@ function sendRequestInscription(string $email, string $message,$token){
 
 
 }
+
+function sendConfirmationInscription(string $email){
+
+    $mail = new PHPMailer();
+
+
+    $content ='Bonjour ! Votre demande d\'inscription a bien été prise en compte. Rendez-vous sur http://nanookpandora.com/inukshuk';
+
+    try {
+        
+
+        $mail->SMTPDebug = 2;                     
+        $mail->isSMTP();                                           
+        $mail->Host= 'mail.gandi.net';                     
+        $mail->SMTPAuth   = true;                                   
+        $mail->Username='inukshuk@nanookpandora.com';
+        $mail->Password='inukshuk!';
+        $mail->Port= 587;                                    
+        
+
+        $mail->setFrom('inukshuk@nanookpandora.com', 'Inukshuk');
+        $mail->addAddress($email);     
+       
+    
+      
+        // mail Content
+        $mail->isHTML(true);                                  
+        $mail->Subject = 'Confirmation de votre demande d\'inscription.';
+        $mail->Body    = $content;
+    
+        $mail->send();
+        return TRUE;
+
+    } catch (Exception $e) {
+
+        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+    }
+
+
+
+
+}

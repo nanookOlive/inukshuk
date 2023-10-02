@@ -47,7 +47,7 @@ if(isset($_SESSION['user'])){
         </div>
         <div class='waou-effect' >
 
-            <a href="<?= $router->generate('inscription')?>" class='titre-fr' id='right'>nous rejoindre</a>
+            <a href="<?= $router->generate('inscription')?>" class='titre-fr' id='right'>s'inscrire</a>
             <a href="<?= $router->generate('inscription')?>" class='titre-inut' id='right'>rejoindre</a>
         </div>
     </div>
