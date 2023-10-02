@@ -148,7 +148,7 @@ body{
 
     position: absolute;
 
-    width:1300px;
+    width:1000px;
     height:100px;
   
 }
@@ -172,9 +172,10 @@ body{
     font-size:70px;
 
 }
+
 #right{
 
-    right:50px;
+    right:0;
 }
 
 .waou-effect .titre-fr{
@@ -300,4 +301,5 @@ footer{
     display:flex;
     justify-content: center;
     font-size: 0.75rem;
+    margin-top:50px;
 }

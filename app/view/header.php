@@ -33,9 +33,12 @@
                 <a href="<?=$router->generate('auteurs')?>">les auteurs</a>
             </span>
 
-            <a href="<?= $router->generate('logout')?>">Se déconnecter</a>
+            <span class='categorie-nav'>
+                <p class="top-cat-nav">partir</p>
+                <a href="<?= $router->generate('logout')?>">se déconnecter</a>
 
-        </div>
+            </span>
+
         </div>
 
        

@@ -102,38 +102,6 @@ class UserController extends CoreController{
         $router=$this->router;
 
 
-       
-        $error=[];
-
-
-        ////is empty 
-
-        foreach($_POST as $key => $val){
-
-            if(empty($val)){
-                
-                $error[$key]='is_empty';
-            }
-        }
-
-        $_SESSION['error']=$error;
-
-
-        if(!empty($error)){
-
-            header('Location:'.$router->generate('inscription'));
-            
-        }
-
-        
-
-
-        
-       else{
-
-
-
-        
             $email=filter_input(INPUT_POST,'mail',FILTER_SANITIZE_FULL_SPECIAL_CHARS);
             $password=filter_input(INPUT_POST,'password',FILTER_SANITIZE_FULL_SPECIAL_CHARS);
             $message=filter_input(INPUT_POST,'message',FILTER_SANITIZE_FULL_SPECIAL_CHARS);
@@ -144,14 +112,24 @@ class UserController extends CoreController{
                 //exists in base 
 
                 $user = new User;
-                            
+                $user=$user->getUser($email);      
 
-                if($user->getUser($email)){
+                if($user){
 
-                    $error['inBase']='user allready in base';
+                    $_SESSION['error']['errorInscription']='Vous êtes déjà inscrit.';
 
-                    //message vous êtes dejà inscrit
-                    $_SESSION['error']= $error;
+
+                    if($user->getGranted()){
+
+                        $_SESSION['error']['statutInscription']='Votre inscription a déjà été validée.';
+                    }
+                    else{
+
+                        $_SESSION['error']['statutInscription']='Votre inscription est cours de validation';
+
+
+                    }        
+
                     header('Location:'.$router->generate('inscription'));
 
                 }
@@ -177,9 +155,10 @@ class UserController extends CoreController{
             }
             else{
 
-                echo 'invalid mail format';
+                $_SESSION['error']['email']="Format de l'adresse mail invalide";
+                header('Location:'.$router->generate('inscription'));
             }
-        }
+        
             
 
 

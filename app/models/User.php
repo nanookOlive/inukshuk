@@ -22,7 +22,7 @@ class User extends Model{
 
         return $this->pass;
     }
-    public function getGranted():int{
+    public function getGranted(){
 
         return $this->granted;
     }
