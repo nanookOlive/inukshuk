@@ -2,6 +2,8 @@
 
 namespace App\controllers;
 use App\models\User;
+use core\JWT;
+require_once __DIR__.'/../../core/JWT.php';
 require_once __DIR__.'/../../core/Utils.php';
 
 class UserController extends CoreController{
@@ -62,6 +64,19 @@ class UserController extends CoreController{
 
                             //on check le status du user ; il doit être granted pour accéder au service
                             $_SESSION['user']=serialize($user);  
+                            //on setcookie avec JWT 
+
+
+                            //pour l'exemple 
+
+                            $jwt = new JWT();
+                            setcookie(
+                                'userToken',
+                                $jwt->generate(['alg'=>'HS256','typ'=>'JWT'],['pass'=>$user->getPassword,'status'=>$user->getGranted,'mail'=>$user->getMail]),
+                                time()+3600
+                               
+                            );
+
                             header('Location:'.$router->generate('allTunes'));
                         }
 
@@ -170,19 +185,20 @@ class UserController extends CoreController{
     public function logoutUser(){
 
         $router = $this->router;
-        session_unset();
-        session_destroy();
 
-        if(ini_get('session.use_cookies')){
-            $params = session_get_cookie_params();
-            setCookie(session_name(),'',time()-3600,
-            $params["path"],
-            $params['domain'],
-            $params['secure'],
-            $params['httponly']);
+        $jwt=new JWT;
+
+        if($jwt->isValide($_COOKIE['userToken'])){
+
+            $_SESSION=[];
+            session_destroy();
+
+
+            setCookie('userToken','',time()-9999);
+            header('Location:'.$router->generate('home'));
+
         }
-
-        header('Location:'.$router->generate('home'));
+        
 
        
     }

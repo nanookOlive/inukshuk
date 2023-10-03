@@ -61,7 +61,7 @@ class JWT{
 
         if($signatureToTest === $signature){
 
-            return 'goody';
+            return true;
         }
        
     }

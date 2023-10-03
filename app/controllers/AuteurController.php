@@ -2,6 +2,8 @@
 
 namespace App\controllers;
 use App\models\Auteur;
+use core\JWT;
+require_once __DIR__.'/../../core/JWT.php';
 
 class AuteurController extends CoreController{
 
@@ -11,9 +13,20 @@ class AuteurController extends CoreController{
 
         if(isset($_SESSION['user'])){
 
-            $data =(new Auteur())->getAll();
-            $this->render('Auteur',$data);
+            $jwt= new JWT;
 
+            if($jwt->isValide($_COOKIE['userToken'])){
+                $data =(new Auteur())->getAll();
+                $this->render('Auteur',$data);
+    
+
+            }
+            else{
+
+
+            }
+            
+            
         }
         
     }
