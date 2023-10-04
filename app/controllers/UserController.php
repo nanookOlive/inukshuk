@@ -73,7 +73,7 @@ class UserController extends CoreController{
                             setcookie(
                                 'userToken',
                                 $jwt->generate(['alg'=>'HS256','typ'=>'JWT'],['pass'=>$user->getPassword(),'status'=>$user->getGranted(),'mail'=>$user->getMail()]),
-                                time()+3600
+                                time()+3600,'/','',true,true
                                
                             );
 

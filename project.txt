@@ -1,2 +1,4 @@
-faire identification user
-ouaf
+redirection 403 404 error toussa toussa
+création d'une partie crud/gestion ?? 
+responsive
+la documentation
