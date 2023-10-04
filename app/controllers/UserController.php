@@ -72,7 +72,7 @@ class UserController extends CoreController{
                             $jwt = new JWT();
                             setcookie(
                                 'userToken',
-                                $jwt->generate(['alg'=>'HS256','typ'=>'JWT'],['pass'=>$user->getPassword,'status'=>$user->getGranted,'mail'=>$user->getMail]),
+                                $jwt->generate(['alg'=>'HS256','typ'=>'JWT'],['pass'=>$user->getPassword(),'status'=>$user->getGranted(),'mail'=>$user->getMail()]),
                                 time()+3600
                                
                             );
@@ -151,6 +151,7 @@ class UserController extends CoreController{
                 else{
 
                     $token = uniqid();
+                    $user=new User;
                     if($user->insertUser($email,$password,$token)){
 
                         //envoie du mail à l'admin pour changement du status de granted 0 à granted 1
