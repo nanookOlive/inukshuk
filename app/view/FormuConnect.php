@@ -62,9 +62,6 @@ $_SESSION=[];
 
     <div class='big-container'>
 
-        
-        
-
         <div class='right-container'>
             <div id='info-error'><?=$error?></div>
                 <form method='POST' class='formulaire'>
@@ -75,6 +72,7 @@ $_SESSION=[];
             </div>
         </div>
     </div>
+
     <?=$message?>
         <?php require_once 'footer.php'?>
 </body>
