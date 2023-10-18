@@ -10,28 +10,49 @@
     var item_click=document.getElementsByClassName('item-click');
     var tabi = Array.from(item_click);
     var show_pdf=document.getElementById('show-pdf');
+    var show_pdf_mobile=document.getElementsByClassName('show-pdf-mobile');
 
-    console.log(tabi);
     tabi.forEach(function(item){
+
         item.addEventListener('click',function(){
 
-            show_pdf.innerHTML='';
-           
-
-            // Create a new iframe element
             const iframe = document.createElement("iframe");
             var chemin=item.getAttribute('value');
-            console.log(chemin[0]);
+
             // Set the attributes for the iframe
             iframe.src = "/mvc2/res/tunePdf/"+item.getAttribute('value')+'.pdf'; // Replace with the URL you want to embed
             iframe.width = "500"; // Set the desired width
             iframe.height = "700"; // Set the desired height
 
             // Append the iframe to the container
-            show_pdf.appendChild(iframe);
+          
 
+            if(window.getComputedStyle(show_pdf).display === 'block'){
+
+            show_pdf.innerHTML='';
+            // Create a new iframe element
             
-        })
+            show_pdf.appendChild(iframe);}
+
+           else{
+
+            var tune = document.getElementById(item.getAttribute('value'));
+
+            Array.from(show_pdf_mobile).forEach(function(element){
+                element.innerHTML='';
+            });
+
+            //trying to set an id for the iframe to set width value in app.css
+            //iframe.width="360";
+            iframe.setAttribute("id",'iframe');
+            tune.children[1].appendChild(iframe);
+            
+           }
+
+        
+            
+            
+        });
     })
 </script>
 </html>
