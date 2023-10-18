@@ -144,6 +144,7 @@ body{
 }
 
 
+
 /*-------------------------FORMUCONNECT-----------------------*/
 .top-page{
 
@@ -309,7 +310,7 @@ footer{
 
 
 
-@media(max-width:781px){
+@media(max-width:767px){
 
     body{
 
@@ -345,15 +346,12 @@ footer{
 }
 
 
-
-@media(min-width:782px){
-
+@media (min-width: 768px)  {
 
     .top-header{
 
-        width : 1000px;
+        width:100%;
     }
-
     .text-content{
 
         display : none;
@@ -366,7 +364,15 @@ footer{
     #show-pdf{
 
         display:block;
+        width : 100%;
+        margin-left : 50px;
+    }
+
+    iframe{
+
+        width:100%;
+        height :700px;
     }
 
 }
-
+  

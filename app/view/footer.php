@@ -21,8 +21,7 @@
 
             // Set the attributes for the iframe
             iframe.src = "/mvc2/res/tunePdf/"+item.getAttribute('value')+'.pdf'; // Replace with the URL you want to embed
-            iframe.width = "500"; // Set the desired width
-            iframe.height = "700"; // Set the desired height
+          
 
             // Append the iframe to the container
           
