@@ -22,7 +22,7 @@ class UserController extends CoreController{
 
         // on vérifie nettoie les inputs
 
-        if((empty($_POST['mail']) || (empty($_POST['password'])))){
+        if((empty($_POST['mail'])) || (empty($_POST['password']))){
 
            header('Location:'.$router->generate('home'));
         }
@@ -158,6 +158,7 @@ class UserController extends CoreController{
                         $token=($user->getUser($email))->getToken();
                         
                         sendRequestInscription($email,$_POST['message'],$token);
+                        $_SESSION['inscription']='Votre inscription est en cours de validation. Vous receverez sous peu un mail de confirmation.';
                         header('Location:'.$router->generate('home'));
                     }
 

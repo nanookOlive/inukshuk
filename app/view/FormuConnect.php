@@ -1,6 +1,13 @@
 
 <?php
 
+$message='';
+
+if(isset($_SESSION['inscription'])){
+
+    $message=$_SESSION['inscription'];
+}
+
 if(isset($_SESSION['error'])){
 
     $error=$_SESSION['error'];
@@ -27,6 +34,7 @@ if(isset($_SESSION['user'])){
     $_SESSION['user']=null;
 }
 
+$_SESSION=[];
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -66,6 +74,8 @@ if(isset($_SESSION['user'])){
                 </form>   
             </div>
         </div>
+    </div>
+    <?=$message?>
         <?php require_once 'footer.php'?>
 </body>
 
