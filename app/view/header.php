@@ -14,7 +14,7 @@
 
 
         <div class="top-header">
-           <a href="<?= $router->generate('allTunes')?>"> <div class="logo-container">
+           <a href="<?= $router->generate('allTunes')?>" id='retour'> <div class="logo-container">
                 <img src='/mvc2/app/view/ressources/2.png' id='logo' loading='lazy'>
             </div></a>
 

@@ -359,9 +359,21 @@ footer{
 
         margin: 0,0;
     }
+    .text-content{
+
+        display: none;
+    }
     .top-header{
 
+        width: 100%;
+    }
+    #retour{
+
         display:none;
+    }
+    .categorie-nav{
+
+        font-size:13px;
     }
     .mama-flex{
 
